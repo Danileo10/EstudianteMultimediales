@@ -7,7 +7,7 @@ class Rol(models.Model):
     nombre_rol = models.CharField(max_length=80)
 
     def __str__(self):
-        return self.idRol
+        return self.nombre_rol
 
 class Perfil(models.Model):
     idPerfil = models.AutoField(primary_key=True)
@@ -19,7 +19,7 @@ class Perfil(models.Model):
     idRol = models.ForeignKey(Rol, null=False, on_delete=models.CASCADE)
     
     def __str__(self):
-        return self.idPerfil
+        return self.usuario
      
 class Estudiante(models.Model):
     codigo = models.IntegerField(primary_key=True)
@@ -29,7 +29,7 @@ class Estudiante(models.Model):
     idPerfil = models.ForeignKey(Perfil, null=False, on_delete=models.CASCADE)
 
     def __str__(self):
-        return self.codigo
+        return self.nombre
 
 
 
