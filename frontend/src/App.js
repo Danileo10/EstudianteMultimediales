@@ -6,7 +6,10 @@ import HomePage from './pages/HomePage'
 import LoginPage from './pages/LoginPage'
 import Header from './components/Header'
 
+
+
 function App() {
+  
   return (
     <div className="App">
       <Router>

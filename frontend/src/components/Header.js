@@ -13,8 +13,8 @@ const Header = () => {
             ): (
                 <Link to="/login">Login</Link>
             )}
-            
-            {user && <p>Hola {user.username}</p>}
+
+            {user && <p>Hola {user.username}, iniciaste sesion</p>}
             
         </div>
     )
