@@ -1,31 +1,21 @@
-import './App.css';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
-import PrivateRoute from './utils/PrivateRoute'
-import { AuthProvider } from './context/AuthContext'
-import HomePage from './pages/HomePage'
-import LoginPage from './pages/LoginPage'
-import Header from './components/Header'
+import React from 'react';
+import {BrowserRouter as Router, Switch, Route} from 'react-router-dom'
+import Login from './components/Login';
+import Home from './components/Home';
+import EventoList from './components/Eventos';
 
-
-
-function App() {
-  
+const App = () => {
   return (
-    <div className="App">
+    <React.Fragment>
       <Router>
-        <AuthProvider>
-          <Header />
-          <Routes>
-            <Route element={<PrivateRoute />}>
-              <Route element={<HomePage />} path="/" exact />
-            </Route>
-            <Route element={<LoginPage />} path="/login" />
-          </Routes>
-        </AuthProvider>
-        
+        <Switch>
+          <Route path="/" exact render = { props => (<Login {...props}/>) }></Route>
+          <Route path="/home" exact render = { props => (<Home {...props}/>) }></Route>
+          <Route path="/eventos" component={EventoList} />
+        </Switch>
       </Router>
-    </div>
+    </React.Fragment>
   );
-}
+};
 
 export default App;
