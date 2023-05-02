@@ -23,16 +23,16 @@ class RegistrerView(APIView):
 class PerfilView(APIView):
     #permission_classes = [IsAuthenticated]
     
-    #def get(self, request):
-        #perfil = Perfil.objects.filter(email='daniel@gmail.com')
-        #serializer = PerfilSerializer(perfil, many = True)
-        #return Response(serializer.data)
+    def get(self, request):
+        perfil = Perfil.objects.filter(email='daniel@gmail.com')
+        serializer = PerfilSerializer(perfil, many = True)
+        return Response(serializer.data)
     
     def put(self, request):
-        perfil = Perfil.objects.get(id=request.user.id)
-        serializer = PerfilUpdateSerializer(perfil, request.data)
+        perfil = Perfil.objects.get(email='daniel@gmail.com')
+        serializer = PerfilUpdateSerializer(perfil, data=request.data)
         
-        if serializer.is_valid(raise_exception=True):
+        if serializer.is_valid():
             serializer.save()
             return Response(serializer.data)
         
@@ -52,3 +52,15 @@ class ProgramaApiViewSet(ModelViewSet):
 
     serializer_class = ProgramaSerializer
     queryset = Programa.objects.all()
+
+from rest_framework.views import APIView
+from rest_framework.response import Response
+from rest_framework import status
+from user.models import Perfil, Estudiante
+from .serializers import EstudianteSerializer
+
+class EstudianteView(APIView):
+    def get(self, request):
+        estudiante = Estudiante.objects.select_related('perfil').filter(perfil__email='daniel@gmail.com')
+        serializer = EstudianteSerializer(estudiante, many=True)
+        return Response(serializer.data)

@@ -16,22 +16,26 @@ class PerfilRegistrerSerializer(serializers.ModelSerializer):
         
         return instance
     
+from rest_framework import serializers
+from user.models import Perfil, Estudiante
+
 class PerfilSerializer(serializers.ModelSerializer):
     class Meta:
         model = Perfil
-        fields = ['username', 'email', 'password', 'documento', 'rol' ]
+        fields = ['idPerfil', 'rol', 'username', 'email', 'documento']
+
+class EstudianteSerializer(serializers.ModelSerializer):
+    perfil = PerfilSerializer()
+    class Meta:
+        model = Estudiante
+        fields = ['idEstudiante', 'perfil', 'programa', 'nombre', 'apellido', 'telefono', 'codigo']
+
         
 class PerfilUpdateSerializer(serializers.ModelSerializer):
     class Meta:
         model = Perfil
         fields = ['usuario', 'correo', 'contraseña', 'documento']
 
-
-class EstudianteSerializer(serializers.ModelSerializer):
-    # usuario = UserSerializer()
-    class Meta:
-        model = Estudiante
-        fields = ['Perfil_idPerfil', 'Programa_idPrograma', 'nombre', 'apellido', 'telefono', 'codigo']
 
 class RolSerializer(serializers.ModelSerializer):
     # usuario = UserSerializer()
@@ -44,3 +48,7 @@ class ProgramaSerializer(serializers.ModelSerializer):
     class Meta:
         model = Programa
         fields = ['nombre_programa', 'codigo_programa']
+
+
+
+

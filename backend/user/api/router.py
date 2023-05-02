@@ -1,7 +1,7 @@
 from django.urls import path
 from user.api.views import RegistrerView, PerfilView
 from rest_framework.routers import DefaultRouter
-from user.api.views import EstudianteApiViewSet, ProgramaApiViewSet, RolApiViewSet
+from user.api.views import EstudianteApiViewSet, ProgramaApiViewSet, RolApiViewSet,EstudianteView
 
 from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
 
@@ -20,4 +20,6 @@ urlpatterns = [
     path('auth/token/login', TokenObtainPairView.as_view(), name='token_obtain_pair'),
     path('auth/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
     path('ver_perfil/', PerfilView.as_view()),
+    path('estudiante/', EstudianteView.as_view(), name='estudiante'),
+    
 ]
