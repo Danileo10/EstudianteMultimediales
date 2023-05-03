@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import Navbar from "./Navbar";
 
 function EventoList() {
   const [eventos, setEventos] = useState([]);
@@ -10,6 +11,8 @@ function EventoList() {
   }, []);
 
   return (
+    <div>
+        <Navbar/>
     <table>
       <thead>
         <tr>
@@ -34,6 +37,8 @@ function EventoList() {
         ))}
       </tbody>
     </table>
+    </div>
+    
   );
 }
 

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import Navbar from "./Navbar";
 
 const ActividadesList = () => {
   const [actividades, setActividades] = useState([]);
@@ -11,11 +12,13 @@ const ActividadesList = () => {
   }, []);
 
   return (
+    
     <div>
-      <h1>Lista de Actividades</h1>
-      <ul>
+    <Navbar/>
+      <h1>Horas registradas</h1>
+      <ul className="lista actividad">
         {actividades.map((actividad) => (
-          <li key={actividad.idAsistencia}>
+          <li className="actividad" key={actividad.idAsistencia}>
             <p>Actividad: {actividad.actividad.nombre}</p>
             <p>Horas registradas: {actividad.horas_registradas}</p>
             <p>Fecha: {actividad.fecha}</p>
