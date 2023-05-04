@@ -1,0 +1,37 @@
+.container{
+    background-color: white;
+}
+
+.body{
+    background-color: white;
+}
+
+body{
+    background-color: white;
+}
+
+ul {
+    list-style: none;
+}
+
+.titulo{
+    text-align: center;
+}
+
+.lista-actividad{
+    margin-top: 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap:wrap
+}
+
+.actividad{
+    margin-top: 2rem;
+    width: 250px;
+    border: 2px black solid;
+    text-align: center;
+    background: rgb(191,234,245);
+    background: radial-gradient(circle, rgba(191,234,245,1) 17%, rgba(145,216,228,1) 78%);
+}
+
