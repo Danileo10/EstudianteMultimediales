@@ -2,8 +2,14 @@ import React from 'react'
 import "../assets/styles/Navbar.css"
 import Bienestar from "../assets/bienestar.png"
 import Perfil from "../assets/perfil.png"
+import {useHistory} from 'react-router-dom'
 
 const Navbar = () => {
+    const history=useHistory();
+    function logOut(){
+        localStorage.clear();
+        history.push('/')
+    }
     return (
         <div>
             <nav>
@@ -20,6 +26,9 @@ const Navbar = () => {
                             <a href="/eventos">Eventos</a>
                         </li>
                         <li>
+                            <a href="/eventosxprograma">Eventos por programa</a>
+                        </li>
+                        <li>
                             <a href="/actividades">Mis Horas</a>
                         </li>
                     </ul>
@@ -31,7 +40,9 @@ const Navbar = () => {
                             <a href="/perfil">
                                 <img src={Perfil} alt="perfil"  />
                             </a>
-                            
+                        </li>
+                        <li>
+                            <a onClick={logOut} href="/">Cerrar Sesión</a>
                         </li>
                     </ul>
                 </div>
@@ -63,6 +74,9 @@ const Navbar = () => {
                     <ul>
                         <li>
                             <a href="/#">Mi perfil</a>
+                        </li>
+                        <li>
+                            <a href="/#">LogOut</a>
                         </li>
                     </ul>
 

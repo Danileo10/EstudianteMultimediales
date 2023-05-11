@@ -41,6 +41,7 @@ urlpatterns = [
     path('api/', include('user.api.router')),
     path('api/',include('eventos.api.routers')),
     path('api/',include('horasregistradas.api.router')),
+    path('api/',include('eventoxprograma.api.router')),
     path('api/', include(router_estudiante.urls)),
     path('api/', include(router_programa.urls)),
     path('api/', include(router_rol.urls)),

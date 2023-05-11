@@ -1,0 +1,25 @@
+.tabla{
+    background: rgb(191,234,245);
+    background: linear-gradient(180deg, rgba(191,234,245,1) 17%, rgba(145,216,228,1) 78%);
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    border-spacing: 20px;
+    width: 70%;
+    -webkit-box-shadow: 4px 5px 5px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 4px 5px 5px 0px rgba(0,0,0,0.75);
+    box-shadow: 4px 5px 5px 0px rgba(0,0,0,0.75);
+    border-radius: 10px 10px 10px 10px;
+    -moz-border-radius: 10px 10px 10px 10px;
+    -webkit-border-radius: 10px 10px 10px 10px;
+    border: 0px solid #000000;
+}
+
+
+
+.select{
+    display:block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 2rem;
+}

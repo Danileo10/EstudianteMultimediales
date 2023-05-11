@@ -1,0 +1,40 @@
+body{
+    background-color: white;
+}
+
+.container{
+    background-color: white;
+}
+
+.evento p{
+    color: #000000;
+}
+
+.evento{
+    border-radius: 10px 10px 10px 10px;
+    -moz-border-radius: 10px 10px 10px 10px;
+    -webkit-border-radius: 10px 10px 10px 10px;
+    -webkit-box-shadow: 2px 4px 5px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 2px 4px 5px 0px rgba(0,0,0,0.75);
+    box-shadow: 2px 4px 5px 0px rgba(0,0,0,0.75);
+    border: 0px solid #000000;
+    margin-top: 2rem;
+    width: 250px;
+   
+    text-align: center;
+    background: rgb(191,234,245);
+    background: radial-gradient(circle, rgba(191,234,245,1) 17%, rgba(145,216,228,1) 78%);
+    
+}
+
+.eventos{
+    margin-top: 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap:wrap
+}
+
+.main {
+    background-color: white;
+}

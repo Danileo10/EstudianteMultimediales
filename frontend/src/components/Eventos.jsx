@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import Navbar from "./Navbar";
+import "../assets/styles/Eventos.css"
 
 function EventoList() {
   const [eventos, setEventos] = useState([]);
+  
 
   useEffect(() => {
     fetch('http://127.0.0.1:8000/api/eventos/')
@@ -10,33 +12,24 @@ function EventoList() {
       .then(data => setEventos(data));
   }, []);
 
+
   return (
-    <div>
+    <div className='main'>
         <Navbar/>
-    <table>
-      <thead>
-        <tr>
-          <th>Nombre del evento</th>
-          <th>Administrativo</th>
-          <th>Fecha de inicio</th>
-          <th>Fecha de finalización</th>
-          <th>Estado</th>
-          <th>Corrección</th>
-        </tr>
-      </thead>
-      <tbody>
-        {eventos.map(evento => (
-          <tr key={evento.idEvento}>
-            <td>{evento.nombre_evento}</td>
-            <td>{evento.Administrativo.nombre} {evento.Administrativo.apellido}</td>
-            <td>{evento.fecha_inicio}</td>
-            <td>{evento.fecha_final}</td>
-            <td>{evento.estado}</td>
-            <td>{evento.correcion}</td>
-          </tr>
+        <h1>Eventos</h1>
+      <div className='eventos container' key={eventos.idEvento}>
+      {eventos.map(evento => (
+          <div className='evento' key={evento.idEvento}>
+            <div className=''>
+              <p className=''>Evento: {evento.nombre_evento}</p>
+              <p className=''>Administrativo: {evento.Administrativo.nombre} {evento.Administrativo.apellido}</p>
+              <p className=''>Fecha inicio: {evento.fecha_inicio}</p>
+              <p className=''>Fecha final: {evento.fecha_final}</p>
+            </div>
+          </div>
         ))}
-      </tbody>
-    </table>
+      </div>
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"/>
     </div>
     
   );

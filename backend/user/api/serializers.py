@@ -34,7 +34,7 @@ class EstudianteSerializer(serializers.ModelSerializer):
 class PerfilUpdateSerializer(serializers.ModelSerializer):
     class Meta:
         model = Perfil
-        fields = ['usuario', 'correo', 'contraseña', 'documento']
+        fields = ['username', 'email', 'documento']
 
 
 class RolSerializer(serializers.ModelSerializer):

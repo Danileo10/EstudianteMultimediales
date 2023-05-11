@@ -23,6 +23,7 @@ class PerfilManager(BaseUserManager):
             email=self.normalize_email(email), 
             username=username, 
             rol=rol,
+            password=password,
             **extra_fields
         )
         user.set_password(password)
@@ -50,12 +51,17 @@ class Rol(models.Model):
 
 
 class Programa(models.Model):
+    idPrograma = models.AutoField(primary_key=True)
     nombre_programa = models.CharField(max_length=50, blank=False)
     codigo_programa = models.CharField(max_length=15, blank=False)
-    create_at = models.DateTimeField(auto_now_add=True)
+
 
     def __str__(self):
         return f"Programa: {self.nombre} - Monto Objetivo: {self.monto_obj}"
+    
+    class Meta:
+        db_table = "programa"
+        managed = False
 
 
 class Perfil(AbstractBaseUser):

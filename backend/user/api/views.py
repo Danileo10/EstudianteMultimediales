@@ -24,12 +24,12 @@ class PerfilView(APIView):
     #permission_classes = [IsAuthenticated]
     
     def get(self, request):
-        perfil = Perfil.objects.filter(email='daniel@gmail.com')
+        perfil = Perfil.objects.filter(idPerfil=1)
         serializer = PerfilSerializer(perfil, many = True)
         return Response(serializer.data)
     
     def put(self, request):
-        perfil = Perfil.objects.get(email='daniel@gmail.com')
+        perfil = Perfil.objects.get(idPerfil = '1')
         serializer = PerfilUpdateSerializer(perfil, data=request.data)
         
         if serializer.is_valid():
